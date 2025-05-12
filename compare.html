@@ -67,7 +67,7 @@
 
   <script>
     // Load players.json and populate dropdowns
-    fetch('../data/players.json')
+    fetch('data/players.json')
       .then(response => response.json())
       .then(players => {
         const player1Select = document.getElementById('player1Select');
