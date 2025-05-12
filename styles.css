@@ -4,7 +4,7 @@
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #004080; /* Light background, adjust as needed */
-  color: #333;
+  color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
