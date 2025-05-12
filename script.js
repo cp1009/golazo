@@ -1,17 +1,3 @@
-// Sample player data (could be fetched from JSON or API instead)
-const playersData = {
-    messi: {
-      name: 'Lionel Messi',
-      image: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Lionel_Messi_20180626.jpg',
-      stats: { goals: 805, assists: 350, appearances: 1030 }
-    },
-    ronaldo: {
-      name: 'Cristiano Ronaldo',
-      image: 'https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg',
-      stats: { goals: 850, assists: 280, appearances: 1100 }
-    }
-  };
-  
   // Populate dropdowns (if dynamically loaded)
   function populateDropdowns() {
     const playerSelect = document.getElementById('playerSelect');
