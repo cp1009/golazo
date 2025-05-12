@@ -1,7 +1,7 @@
 [
     {
       "name": "Lionel Messi",
-      "image": "/images/messi.jpg",
+      "image": "../images/messi.jpg",
       "stats": {
         "goals": 805,
         "assists": 350,
@@ -11,7 +11,7 @@
     },
     {
       "name": "Cristiano Ronaldo",
-      "image": "images/ronaldo.jpg",
+      "image": "../images/ronaldo.jpg",
       "stats": {
         "goals": 850,
         "assists": 280,
@@ -21,7 +21,7 @@
     },
     {
       "name": "Neymar Jr",
-      "image": "/images/neymar.jpg",
+      "image": "../images/neymar.jpg",
       "stats": {
         "goals": 400,
         "assists": 220,
@@ -31,7 +31,7 @@
     },
     {
         "name": "Thierry Henry",
-        "image": "/images/henry.jpg",
+        "image": "../images/henry.jpg",
         "stats": {
           "goals": 411,
           "assists": 198,
@@ -41,7 +41,7 @@
       },
       {
         "name": "Ronaldinho",
-        "image": "/images/ronaldinho.jpg",
+        "image": "../images/ronaldinho.jpg",
         "stats": {
           "goals": 293,
           "assists": 117,
