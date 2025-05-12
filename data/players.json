@@ -1,0 +1,52 @@
+[
+    {
+      "name": "Lionel Messi",
+      "image": "/images/messi.jpg",
+      "stats": {
+        "goals": 805,
+        "assists": 350,
+        "appearances": 1030,
+        "G/A": 1155
+      }
+    },
+    {
+      "name": "Cristiano Ronaldo",
+      "image": "images/ronaldo.jpg",
+      "stats": {
+        "goals": 850,
+        "assists": 280,
+        "appearances": 1100,
+        "G/A": 1130
+      }
+    },
+    {
+      "name": "Neymar Jr",
+      "image": "/images/neymar.jpg",
+      "stats": {
+        "goals": 400,
+        "assists": 220,
+        "appearances": 700,
+        "G/A": 620
+      }
+    },
+    {
+        "name": "Thierry Henry",
+        "image": "/images/henry.jpg",
+        "stats": {
+          "goals": 411,
+          "assists": 198,
+          "appearances": 967,
+          "G/A": 609
+        }
+      },
+      {
+        "name": "Ronaldinho",
+        "image": "/images/ronaldinho.jpg",
+        "stats": {
+          "goals": 293,
+          "assists": 117,
+          "appearances": 507,
+          "G/A": 410
+        }
+      }
+  ]
