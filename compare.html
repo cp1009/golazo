@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spieler vergleichen</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">⚽ Golazo</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="collapse navbar-collapse justify-content-end"
+        id="navbarNav"
+      >
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="search.html">Suchen</a>
+          </li>
+                    <li class="nav-item">
+            <a class="nav-link" href="compare.html">Vergleichen</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Compare Form -->
+  <main class="container my-5">
+    <h2 class="mb-4 text-center">Spieler Statistiken vergleichen</h2>
+    <form id="compareForm" class="card p-4 shadow">
+      <div class="mb-3">
+        <label for="player1Select" class="form-label">Spieler 1:</label>
+        <select id="player1Select" class="form-select" required>
+          <option value="">Wähle Spieler</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="player2Select" class="form-label">Spieler 2:</label>
+        <select id="player2Select" class="form-select" required>
+          <option value="">Wähle Spieler</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="statSelect" class="form-label">Wählen Statistik:</label>
+        <select id="statSelect" class="form-select" required>
+          <option value="">Wähle eine Statistik</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Vergleichen</button>
+    </form>
+  </main>
+
+  <script>
+    // Load players.json and populate dropdowns
+    fetch('../data/players.json')
+      .then(response => response.json())
+      .then(players => {
+        const player1Select = document.getElementById('player1Select');
+        const player2Select = document.getElementById('player2Select');
+        const statSelect = document.getElementById('statSelect');
+
+        // Populate player dropdowns
+        players.forEach(player => {
+          const option1 = document.createElement('option');
+          option1.value = player.name.toLowerCase().replace(/\s+/g, '');
+          option1.textContent = player.name;
+          player1Select.appendChild(option1);
+
+          const option2 = document.createElement('option');
+          option2.value = player.name.toLowerCase().replace(/\s+/g, '');
+          option2.textContent = player.name;
+          player2Select.appendChild(option2);
+        });
+
+        // Populate stat dropdown (using the first player's stats as reference)
+        const stats = Object.keys(players[0].stats);
+        stats.forEach(stat => {
+          const option = document.createElement('option');
+          option.value = stat;
+          option.textContent = stat.charAt(0).toUpperCase() + stat.slice(1);
+          statSelect.appendChild(option);
+        });
+      })
+      .catch(error => console.error('Error loading players.json:', error));
+
+    document.getElementById('compareForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const player1 = document.getElementById('player1Select').value;
+      const player2 = document.getElementById('player2Select').value;
+      const stat = document.getElementById('statSelect').value;
+      if (player1 && player2 && stat) {
+        // Store selections and redirect
+        localStorage.setItem('comparePlayer1', player1);
+        localStorage.setItem('comparePlayer2', player2);
+        localStorage.setItem('compareStat', stat);
+        window.location.href = 'results.html';
+      }
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
