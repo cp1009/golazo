@@ -14,13 +14,6 @@ header.bg-primary {
   background-color: #004080 !important; /* Custom blue theme */
 }
 
-.navbar-brand::before {
-  content: url('images/logo.png'); /* Replace with actual logo path */
-  margin-right: 8px;
-  height: 32px;
-  vertical-align: middle;
-}
-
 footer {
   margin-top: auto;
 }
