@@ -13,7 +13,7 @@
       }
   
       // Fill stats
-      const stats = ['goals', 'assists', 'appearances'];
+      const stats = ['Tore', 'Assists', 'Spiele', 'T/A'];
       stats.forEach(stat => {
         const option = document.createElement('option');
         option.value = stat;

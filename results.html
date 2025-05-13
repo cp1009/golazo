@@ -53,9 +53,12 @@
     fetch('data/players.json')
       .then(response => response.json())
       .then(players => {
+        // Check if comparison mode or single-player mode
         const comparePlayer1 = localStorage.getItem('comparePlayer1');
         const comparePlayer2 = localStorage.getItem('comparePlayer2');
         const compareStat = localStorage.getItem('compareStat');
+        const selectedPlayer = localStorage.getItem('selectedPlayer');
+        const selectedStat = localStorage.getItem('selectedStat');
 
         if (comparePlayer1 && comparePlayer2 && compareStat) {
           // Comparison mode
@@ -80,24 +83,20 @@
           } else {
             document.getElementById('resultCard').innerHTML = '<p class="text-danger">Players not found. Please go back and try again.</p>';
           }
-        } else {
-          // Single-player mode (existing logic)
-          const selectedPlayer = localStorage.getItem('selectedPlayer');
-          const selectedStat = localStorage.getItem('selectedStat');
-
-          if (selectedPlayer && selectedStat) {
-            const player = players.find(p => p.name.toLowerCase().replace(/\s+/g, '') === selectedPlayer);
-            if (player) {
-              document.getElementById('playerImage').src = player.image;
-              document.getElementById('playerName').textContent = player.name;
-              document.getElementById('playerStat').textContent =
-                selectedStat.charAt(0).toUpperCase() + selectedStat.slice(1) + ': ' + player.stats[selectedStat];
-            } else {
-              document.getElementById('resultCard').innerHTML = '<p class="text-danger">Player not found. Please go back and try again.</p>';
-            }
+        } else if (selectedPlayer && selectedStat) {
+          // Single-player mode
+          const player = players.find(p => p.name.toLowerCase().replace(/\s+/g, '') === selectedPlayer);
+          if (player) {
+            document.getElementById('playerImage').src = player.image;
+            document.getElementById('playerName').textContent = player.name;
+            document.getElementById('playerStat').textContent =
+              selectedStat.charAt(0).toUpperCase() + selectedStat.slice(1) + ': ' + player.stats[selectedStat];
           } else {
-            document.getElementById('resultCard').innerHTML = '<p class="text-danger">No data found. Please go back and try again.</p>';
+            document.getElementById('resultCard').innerHTML = '<p class="text-danger">Player not found. Please go back and try again.</p>';
           }
+        } else {
+          // No valid data
+          document.getElementById('resultCard').innerHTML = '<p class="text-danger">No data found. Please go back and try again.</p>';
         }
       })
       .catch(error => console.error('Error loading players.json:', error));
